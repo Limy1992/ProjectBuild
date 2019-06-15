@@ -1,30 +1,22 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
-
-
-    defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
 }
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     api 'androidx.appcompat:appcompat:1.0.2'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //rxLifecycle
+    api "com.trello.rxlifecycle2:rxlifecycle:$rxLifecycle_VERSION"
+    api "com.trello.rxlifecycle2:rxlifecycle-components:$rxLifecycle_VERSION"
+
+    //liveData
+    api "android.arch.lifecycle:extensions:$liveData_VERSION"
+    annotationProcessor "android.arch.lifecycle:compiler:$liveData_VERSION"
+
+    //supper
+    api "com.android.support.constraint:constraint-layout:$constraint_layout_VERSION"
 }
