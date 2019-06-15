@@ -20,7 +20,7 @@ android {
 
 dependencies {
 
-    implementation project(path: ':base_libary')
+    api project(path: ':base_libary')
 }
 repositories {
     mavenCentral()
