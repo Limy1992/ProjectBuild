@@ -1,4 +1,4 @@
-package com.lmy.base.ui
+package com.lmy.base.ui.activity
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
