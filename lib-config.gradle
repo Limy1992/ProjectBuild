@@ -1,5 +1,5 @@
 project.ext{
-	rxLifecycle_VERSION = '2.2.1'
+	rxLifecycle_VERSION = '3.0.0'
 	liveData_VERSION = '1.1.1'
 	constraint_layout_VERSION = '1.1.3'
 }
