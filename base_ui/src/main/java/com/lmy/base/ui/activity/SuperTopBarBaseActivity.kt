@@ -1,18 +1,26 @@
 package com.lmy.base.ui.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import com.lmy.base.ui.R
 
 
 /**
+ * title Activity
  * CreateDate:2019/6/15
  * Author:lmy
  */
-class SuperTopBarBaseActivity : AppCompatActivity() {
+open class SuperTopBarBaseActivity : SuperClassActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_title_base_ui)
+    }
 
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

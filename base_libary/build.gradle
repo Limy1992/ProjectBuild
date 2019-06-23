@@ -12,8 +12,8 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //liveData
-//    api "android.arch.lifecycle:extensions:$liveData_VERSION"
-//    annotationProcessor "android.arch.lifecycle:compiler:$liveData_VERSION"
+    api "android.arch.lifecycle:extensions:$liveData_VERSION"
+    annotationProcessor "android.arch.lifecycle:compiler:$liveData_VERSION"
 
     //rxLifecycle
 //    api "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:$rxLifecycle_VERSION"
