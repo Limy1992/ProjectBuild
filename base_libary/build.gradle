@@ -10,10 +10,12 @@ dependencies {
     //supper
     api "androidx.constraintlayout:constraintlayout:1.1.3"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
     //liveData
     api "android.arch.lifecycle:extensions:$liveData_VERSION"
     annotationProcessor "android.arch.lifecycle:compiler:$liveData_VERSION"
+    //recycleView辅助类
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$BaseRecyclerViewAdapterHelper"
+
 
     //rxLifecycle
 //    api "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:$rxLifecycle_VERSION"
