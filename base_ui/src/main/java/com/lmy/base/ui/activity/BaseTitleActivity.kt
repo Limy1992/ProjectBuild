@@ -26,5 +26,5 @@ abstract class BaseTitleActivity : SuperToolbarActivity() {
 
     abstract fun initView()
     abstract fun initData()
-    protected fun initOther(){}
+    protected open fun initOther(){}
 }
