@@ -14,6 +14,10 @@ open class SuperTopBarBaseActivity : SuperClassActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_title_base_ui)
+        setChildContentView(savedInstanceState)
+    }
+
+    open fun setChildContentView(savedInstanceState: Bundle?){
     }
 
     override fun onStart() {
