@@ -15,7 +15,7 @@ dependencies {
     annotationProcessor "android.arch.lifecycle:compiler:$liveData_VERSION"
     //recycleView辅助类
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$BaseRecyclerViewAdapterHelper"
-
+    api "com.android.support:design:$android_design"
 
     //rxLifecycle
 //    api "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:$rxLifecycle_VERSION"
