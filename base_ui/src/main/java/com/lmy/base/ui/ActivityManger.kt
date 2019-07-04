@@ -39,7 +39,7 @@ object ActivityManger {
      * 当前栈顶是否已经添加当前activity
      */
     fun istTopFlagBatchActivity(activity: Activity): Boolean {
-        return finishActivity?.lastElement() == activity
+        return finishActivity?.size ?: 0 > 0 && finishActivity?.lastElement() == activity
     }
 
     /**
