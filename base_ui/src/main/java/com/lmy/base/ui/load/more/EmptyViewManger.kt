@@ -5,6 +5,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 import com.lmy.base.ui.ActivityManger
+import com.lmy.base.ui.R
 
 /**
  * BaseQuickAdapter 空视图
@@ -13,11 +14,12 @@ import com.lmy.base.ui.ActivityManger
  */
 class EmptyViewManger {
     fun getEmptyView():View{
-        val textView = TextView(ActivityManger.getContext())
-//        textView.setText(text)
-//        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17f)
-//        textView.setTextColor(mContext.getResources().getColor(R.color.v3_black))
-//        textView.gravity = Gravity.CENTER
+        val context = ActivityManger.getContext()
+        val textView = TextView(context)
+        textView.text = "空视图"
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17f)
+        textView.setTextColor(context.resources.getColor(R.color.color_333333))
+        textView.gravity = Gravity.CENTER
         return textView
     }
 }

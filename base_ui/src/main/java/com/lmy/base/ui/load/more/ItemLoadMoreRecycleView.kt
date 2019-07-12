@@ -2,11 +2,14 @@ package com.lmy.base.ui.load.more
 
 import android.content.Context
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.lmy.base.ui.ActivityManger
+import com.lmy.base.ui.R
+import com.lmy.base.util.ToastUtils
 
 /**
  * recycleView 列表加载更多
@@ -22,6 +25,8 @@ class ItemLoadMoreRecycleView(
     companion object {
         const val LOAD_SIZE = 20
     }
+
+    private val emptyViewManger =  EmptyViewManger()
 
     private var mOnLoadMoreDataListener: OnLoadMoreDataListener? = null
     private var mContext: Context = ActivityManger.getContext()
@@ -64,11 +69,13 @@ class ItemLoadMoreRecycleView(
                 baseQuickAdapter?.setOnLoadMoreListener(this, recycleView)
             }
             //设置空视图
+            baseQuickAdapter?.emptyView = emptyViewManger.getEmptyView()
         } else {
             if (isRefresh) {
                 isRefresh = false
                 mOnLoadMoreDataListener?.onNewData()
                 //设置空视图
+                baseQuickAdapter?.emptyView = emptyViewManger.getEmptyView()
             } else {
                 //加载更多
                 if (currentPagerDataCount > 0) {
@@ -90,9 +97,12 @@ class ItemLoadMoreRecycleView(
         this.mOnLoadMoreDataListener = onLoadDataListener
         isLoadErr = false
         mOnLoadMoreDataListener?.onNewData()
-        val emptyView = baseQuickAdapter?.emptyView
-        (emptyView as? FrameLayout)?.removeAllViews()
-        //设置空视图
+        if (mOnLoadMoreDataListener?.getDataSize() == 0) {
+            val emptyView = baseQuickAdapter?.emptyView
+            (emptyView as? FrameLayout)?.removeAllViews()
+            //设置空视图
+            baseQuickAdapter?.emptyView = emptyViewManger.getEmptyView()
+        }
         swipeRefreshLayout?.isRefreshing = false
     }
 
@@ -106,9 +116,11 @@ class ItemLoadMoreRecycleView(
         isLoadErr = true
         if (isRefresh) {
             //刷新错误
+            ToastUtils.showShortToast(R.string.base_refresh_err)
         } else {
             if (isLoadMore) {
                 //加载更多错误
+                baseQuickAdapter?.loadMoreFail()
             } else {
                 //首次加载页面错误
                 mOnLoadMoreDataListener?.onLoadErr()
