@@ -16,6 +16,9 @@ dependencies {
     //recycleView辅助类
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$BaseRecyclerViewAdapterHelper"
     api "com.android.support:design:$android_design"
+    //RxJava
+    api "io.reactivex.rxjava2:rxjava:$rxjava2_VERSION"
+    api "io.reactivex.rxjava2:rxandroid:$rxAndroid2_VERSION"
 
 //    api "com.trello.rxlifecycle2:rxlifecycle:$rxLifecycle_VERSION"
 //    api "com.trello.rxlifecycle2:rxlifecycle-components:$rxLifecycle_VERSION"

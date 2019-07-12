@@ -4,5 +4,6 @@ project.ext{
 	constraint_layout_VERSION = '1.1.3'
 	BaseRecyclerViewAdapterHelper = '2.9.46'
 	android_design = '28.0.0'
-
+	rxjava2_VERSION = '2.2.4'
+	rxAndroid2_VERSION = '2.1.0'
 }
