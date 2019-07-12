@@ -6,4 +6,5 @@ project.ext{
 	android_design = '28.0.0'
 	rxjava2_VERSION = '2.2.4'
 	rxAndroid2_VERSION = '2.1.0'
+    retrofit2_VERSION = '2.5.0'
 }
