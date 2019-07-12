@@ -8,6 +8,7 @@ import com.jakewharton.retrofit2.adapter.rxjava2.HttpException
 import com.lmy.base.net.AppLoadingDialog
 import com.lmy.base.net.LoadCancelListener
 import com.lmy.base.net.R
+import com.lmy.base.util.ActivityManger
 import com.lmy.base.util.ToastUtils
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
@@ -28,12 +29,12 @@ abstract class RxLoadSubscriber<T> : LoadCancelListener, Observer<T> {
         const val TAG = "RxLoadSubscriber"
     }
 
-    fun showDialog(mContext: Context) {
-        val fragmentActivity = mContext as? FragmentActivity
-        if (fragmentActivity != null) {
+    fun showDialog() {
+        val activity = ActivityManger.getFragmentActivity()
+        if (!activity.isFinishing && !activity.isDestroyed) {
             appLoadingDialog = AppLoadingDialog()
             appLoadingDialog?.setLoadingCancelListener(this)
-            appLoadingDialog?.showDialog(fragmentActivity.supportFragmentManager)
+            appLoadingDialog?.showDialog(activity.supportFragmentManager)
         }
     }
 
@@ -76,7 +77,7 @@ abstract class RxLoadSubscriber<T> : LoadCancelListener, Observer<T> {
         onLoadError(e.toString())
     }
 
-    abstract fun onLoadSuccess(t:T)
+    abstract fun onLoadSuccess(t: T)
 
     open fun onLoadError(errMsg: String) {}
 
