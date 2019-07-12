@@ -2,7 +2,7 @@ package com.lmy.base.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.lmy.base.ui.ActivityManger
+import com.lmy.base.util.ActivityManger
 
 /**
  * supper activity

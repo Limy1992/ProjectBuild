@@ -4,7 +4,7 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.TextView
-import com.lmy.base.ui.ActivityManger
+import com.lmy.base.util.ActivityManger
 import com.lmy.base.ui.R
 
 /**

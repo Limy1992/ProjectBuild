@@ -1,4 +1,4 @@
-package com.lmy.base.ui
+package com.lmy.base.util
 
 import android.app.Activity
 import android.content.Context

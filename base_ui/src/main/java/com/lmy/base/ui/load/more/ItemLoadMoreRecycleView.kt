@@ -2,12 +2,11 @@ package com.lmy.base.ui.load.more
 
 import android.content.Context
 import android.widget.FrameLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.lmy.base.ui.ActivityManger
+import com.lmy.base.util.ActivityManger
 import com.lmy.base.ui.R
 import com.lmy.base.util.ToastUtils
 
