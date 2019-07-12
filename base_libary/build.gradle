@@ -17,8 +17,6 @@ dependencies {
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$BaseRecyclerViewAdapterHelper"
     api "com.android.support:design:$android_design"
 
-    //rxLifecycle
-//    api "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:$rxLifecycle_VERSION"
 //    api "com.trello.rxlifecycle2:rxlifecycle:$rxLifecycle_VERSION"
 //    api "com.trello.rxlifecycle2:rxlifecycle-components:$rxLifecycle_VERSION"
 
