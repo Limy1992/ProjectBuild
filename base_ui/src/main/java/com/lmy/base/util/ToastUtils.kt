@@ -8,8 +8,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 
 /**
- * Toast
- * CreateDate:2019/7/12
+ * CreateDate:2019/7/18
  * Author:lmy
  */
 object ToastUtils {

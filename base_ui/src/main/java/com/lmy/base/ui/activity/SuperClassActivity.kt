@@ -2,6 +2,7 @@ package com.lmy.base.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.lmy.base.util.ActivityManger
 import com.lmy.base.util.LifeCycleManger
 import com.trello.rxlifecycle3.LifecycleTransformer
