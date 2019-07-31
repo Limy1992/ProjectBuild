@@ -1,8 +1,6 @@
 package com.lmy.base.net.call
 
-import android.content.Context
 import android.util.Log
-import androidx.fragment.app.FragmentActivity
 import com.google.gson.JsonSyntaxException
 import com.jakewharton.retrofit2.adapter.rxjava2.HttpException
 import com.lmy.base.net.AppLoadingDialog
@@ -18,12 +16,13 @@ import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 
 /**
+ * 请求回调
  * CreateDate:2019/7/12
  * Author:lmy
  */
 abstract class RxLoadSubscriber<T> : LoadCancelListener, Observer<T> {
 
-    var appLoadingDialog: AppLoadingDialog? = null
+    private var appLoadingDialog: AppLoadingDialog? = null
 
     companion object {
         const val TAG = "RxLoadSubscriber"
