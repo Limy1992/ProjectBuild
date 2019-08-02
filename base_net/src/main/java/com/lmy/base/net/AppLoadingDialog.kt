@@ -15,13 +15,14 @@ import androidx.fragment.app.FragmentTransaction
  */
 class AppLoadingDialog : DialogFragment(), DialogInterface.OnKeyListener {
 
-    private var loadCancelListener:LoadCancelListener?=null
+    private var cancelable: Boolean? = true
+    private var loadCancelListener: LoadCancelListener? = null
 
     companion object {
         const val APP_LOADING_TAG = "AppLoadingDialog"
     }
 
-    fun setLoadingCancelListener(loadCancelListener:LoadCancelListener){
+    fun setLoadingCancelListener(loadCancelListener: LoadCancelListener) {
         this.loadCancelListener = loadCancelListener
     }
 
@@ -35,8 +36,18 @@ class AppLoadingDialog : DialogFragment(), DialogInterface.OnKeyListener {
         return inflater.inflate(R.layout.loading, null)
     }
 
+    /**
+     * 设置是否收到关闭dialog
+     * @param cancelable false 禁止手动关闭
+     */
+    fun isCancelable(cancelable: Boolean) {
+        this.cancelable = cancelable
+        dialog?.setCancelable(cancelable)
+    }
+
     override fun onStart() {
         super.onStart()
+
         dialog?.setCanceledOnTouchOutside(false)
         dialog?.setOnKeyListener(this)
         val window = dialog?.window
@@ -63,8 +74,10 @@ class AppLoadingDialog : DialogFragment(), DialogInterface.OnKeyListener {
 
     override fun onKey(dialog: DialogInterface?, keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            loadCancelListener?.onCanceLoad()
-            loadCancelListener=null
+            if (cancelable == true) {
+                loadCancelListener?.onCanceLoad()
+                loadCancelListener = null
+            }
         }
         return false
     }

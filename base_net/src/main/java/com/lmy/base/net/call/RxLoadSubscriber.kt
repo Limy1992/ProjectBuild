@@ -28,16 +28,19 @@ abstract class RxLoadSubscriber<T> : LoadCancelListener, Observer<T> {
         const val TAG = "RxLoadSubscriber"
     }
 
-    fun showDialog() {
+    fun showDialog(cancelDialog: Boolean) {
         val activity = ActivityManger.getFragmentActivity()
         if (!activity.isFinishing && !activity.isDestroyed) {
             appLoadingDialog = AppLoadingDialog()
             appLoadingDialog?.setLoadingCancelListener(this)
             appLoadingDialog?.showDialog(activity.supportFragmentManager)
+            if (!cancelDialog) {
+                appLoadingDialog?.isCancelable(false)
+            }
         }
     }
 
-    var disposable: Disposable? = null
+   private var disposable: Disposable? = null
 
     override fun onComplete() {
     }
@@ -76,9 +79,9 @@ abstract class RxLoadSubscriber<T> : LoadCancelListener, Observer<T> {
         onLoadError(e.toString())
     }
 
-    abstract fun onLoadSuccess(t: T)
+   protected abstract fun onLoadSuccess(t: T)
 
-    open fun onLoadError(errMsg: String) {}
+   protected open fun onLoadError(errMsg: String) {}
 
     private fun dismiss() {
         appLoadingDialog?.dismissAllowingStateLoss()
